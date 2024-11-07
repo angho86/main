@@ -1,5 +1,0 @@
-Metai: 2024
-Menuo: October
-Menesio diena: 4
-Savaites diena: Thursday
-

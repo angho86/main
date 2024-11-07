@@ -46,8 +46,9 @@ function getTodaysMonthTranslated(language, monthNumebr){
 function writeToFile(){
     const currentDate = new Date();
     const year = currentDate.getFullYear();
-    const currentMonth = getTodaysMonthTranslated(settings.language, currentDate.getMonth());
-    const weekDay = currentDate.getDay();
+
+    const currentMonth = getTodaysMonthTranslated(settings.language, getTodaysMonth());
+    const weekDay = currentDate.getDate();
     const translatedWeekDay = getTodaysWeekDayTranslated(settings.language, weekDay);
 
 

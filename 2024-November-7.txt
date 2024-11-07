@@ -1,0 +1,5 @@
+Metai: 2024
+Menuo: November
+Menesio diena: 7
+Savaites diena: Sunday
+
