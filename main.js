@@ -38,22 +38,28 @@ function getTodaysMonth(){
     return month;
 }
 
-function getTodaysMonthTranslated(language){
-    const monthNumebr = getTodaysMonth();
+function getTodaysMonthTranslated(language, monthNumebr){
     return months[language][monthNumebr];
 }
 
-console.log(getTodaysWeekDayTranslated("lt", 5));
-console.log(getTodaysMonthTranslated("lt"));
+
+function writeToFile(){
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const currentMonth = getTodaysMonthTranslated(settings.language, currentDate.getMonth());
+    const weekDay = currentDate.getDay();
+    const translatedWeekDay = getTodaysWeekDayTranslated(settings.language, weekDay);
 
 
-// function writeToFile(dayInWords){
-//     const currentDate = new Date();
-//     const year = currentDate.getFullYear();
-//     const currentMonth = currentDate.getMonth();
+    const dateString = `${year}-${currentMonth}-${weekDay}.txt`;
 
-//     const dateString = `${year}-${currentMonth}`
+    const dataString = `Metai: ${year}\nMenuo: ${currentMonth}\nMenesio diena: ${weekDay}\nSavaites diena: ${translatedWeekDay}\n\n`;
 
-//     fs.appendFile("${")
+    fs.appendFile(dateString, dataString, (error) => {
+        if(error) throw new Error ("Iskrito klaida atnaujinant faila");
+        console.log("Failas sekmingai atnaujintas");
+    });
 
-// }
+}
+
+writeToFile();
