@@ -1,17 +1,9 @@
 import * as fs from "fs";
 
-
-
 const settings = readJsonFile("setting.json");
 const dateLanguage = readJsonFile("languages.json");
 const months = readJsonFile("months.json");
 
-
-const weekDay = getTodaysWeekDay();
-const weekDayTranslated = getTodaysWeekDayTranslated(settings.language, weekDay);
-
-const todayMonth = getTodaysMonth();
-const monthTranslated = getTodaysMonthTranslated(settings.language);
 
 // universali funkcija skaityti json faila
 function readJsonFile(file){
@@ -43,6 +35,8 @@ function getTodaysMonthTranslated(language, monthNumebr){
 }
 
 
+// funkcija irasanti i faila
+
 function writeToFile(){
     const currentDate = new Date();
     const year = currentDate.getFullYear();
@@ -63,4 +57,6 @@ function writeToFile(){
 
 }
 
+
+// iskvieciam failo irasymo funkcija
 writeToFile();
